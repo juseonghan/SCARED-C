@@ -6,7 +6,21 @@ The SCARED dataset is a widely used benchmark for endoscopic depth estimation, o
 ## Usage
 You should only consider running this code if you're interested in re-running COLMAP and/or the scale recovery/reformatting scripts. Due to space constraints, we are unable to provide COLMAP output files. Note that running COLMAP at the original resolution (1024 x 1280) took numerous weeks to complete. 
 
-The only real dependency is COLMAP, which you can install [here](https://colmap.github.io/install.html).
+The only real dependency is COLMAP, which you can install [here](https://colmap.github.io/install.html). Then, you can run
 
+```
+$ chmod +x run_colmap.sh
+$ ./run_colmap.sh /path/to/downloaded/SCARED/dataset /path/to/output/dir
+```
+At the top of `run_colmap.sh` you can change lines 15 and 16 to specify which specific sequences you'd like to process.
+
+To run the scale recovery code, you can run the following command.
+```
+$ python correct_scared.py \
+    --colmap_dir /path/to/colmap/output/dir \
+    --original_dir /path/to/original/SCARED/dataset \
+    --output_dir /path/to/output/dir \
+    --key x_y # can be 1_1, 1_2 to specify dataset_keyframe num
+```
 ## Eval
 To evaluate, you need to install the dependencies of FoundationStereo which you can find [here](https://github.com/NVlabs/FoundationStereo). There's also compatibility for [Fast-FoundationStereo](https://github.com/NVlabs/Fast-FoundationStereo) and [WAFT-Stereo](https://github.com/princeton-vl/WAFT-Stereo). Documentation and cleaner code coming soon!

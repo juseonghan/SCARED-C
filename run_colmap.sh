@@ -12,8 +12,8 @@ fi
 ROOT="$(realpath "$1")"
 OUTPUT_ROOT="$(realpath -m "$2")"
 
-DATASETS=("dataset_7")
-KEYFRAMES=("keyframe_4")
+DATASETS=("dataset_1" "dataset_2" "dataset_3" "dataset_6" "dataset_7")
+KEYFRAMES=("keyframe_1" "keyframe_2" "keyframe_3" "keyframe_4")
 
 # How often to snapshot the mapper state (every N registered images).
 # Lower = more frequent saves = safer against timeouts, but slightly more I/O.
